@@ -1,0 +1,191 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+      
+
+    <f:view contentType="text/html">
+        <h:head>
+            <f:facet name="first">
+                <meta content='text/html; charset=UTF-8' http-equiv="Content-Type"/>
+                 
+                <title>Online Blood Management System-Blood Request</title>
+            </f:facet>
+            
+                <style>
+                    .ui-button-text{
+                        font-size:14px;
+                    }
+                    .smallButton .ui-button-text {
+                        font-size:11px;
+                        color: red;
+                        background-color: blueviolet;
+                    }            
+                    
+                    #lblTitle{
+                        font-size: 36px;
+                        margin-left: 210px;
+                        
+                    }
+                    #divHeading{
+                        color:white;
+                        width:900px; 
+                        height:60px; 
+                        background-color:#5b0202;
+                        margin-top:20px;
+                        margin-left: 250px;
+                        padding-top: 20px;
+                        border-bottom-right-radius: 30px;
+                        border-top-left-radius: 30px;   
+                    }
+                    
+                    .leftBox{
+                        margin-left: 370px;
+                        margin-top: 10px;
+                        width: 550px;
+                        min-height:350px;
+                    }
+                    
+                    .rightBox{
+                        margin-left: 700px;
+                        margin-top: 10px;
+                        width: 500px;
+                        min-height:300px;
+                    }
+                    
+                    #lblHeadDonar{
+                        font-size: 18px;
+                        font-family: cursive;
+                    }
+                   
+                    #divDonar{
+                        margin-top: 120px;
+                        margin-left: 580px;
+                    }
+                    
+                    #divRecipient{
+                        margin-top: -335px;
+                        margin-left: 850px;
+                    }
+                </style>
+        </h:head>
+
+        <h:body style="background-color:white">
+            <div id="divHeading">
+                <h:outputLabel id="lblTitle" ><b>Online Blood Management System</b></h:outputLabel>
+            </div>
+            
+            <div id="divDonar">
+                <h:outputLabel id="lblHeadDonar"><i><b>Donation Request</b></i></h:outputLabel>
+            </div>
+            
+            <p:layout styleClass="leftBox">
+                <p:layoutUnit position="center" >
+                <table style="padding-left: 80px; padding-top: 30px;">
+                       <tr>
+                    <td>
+                <p:outputLabel for="txtPatientName">Patient Name</p:outputLabel>
+                    </td>
+                    <td> 
+                    <p:inputText id="txtPatientName"></p:inputText>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p:outputLabel for="txtPatientDisease">Patient Disease</p:outputLabel> 
+                    </td>    
+                    
+                    <td >
+                        <p:inputText id="txtPatientDisease"></p:inputText>
+                        
+                    </td>
+                
+                    
+                </tr>
+                
+                <tr>
+                    <td>
+                        <p:outputLabel for="ddlUrgency">Urgency</p:outputLabel> 
+                    </td>    
+                    
+                    <td >
+                    <p:selectOneMenu id="ddlUrgency" style="width:225px;">
+                        <f:selectItem itemLabel="Select Level" itemValue="" noSelectionOption="true"></f:selectItem>
+                        <f:selectItem itemLabel="High" itemValue="High" noSelectionOption="true"></f:selectItem>
+                        <f:selectItem itemLabel="Medium" itemValue="Medium" noSelectionOption="true"></f:selectItem>
+                        <f:selectItem itemLabel="Low" itemValue="Low" noSelectionOption="true"></f:selectItem>
+                    </p:selectOneMenu>
+                        
+                    </td>
+                
+                    
+                </tr>
+                
+                <tr>
+                    <td>
+                        <p:outputLabel for="txtBags">Amount (Bags)</p:outputLabel> 
+                    </td>    
+                    
+                    <td >
+                        <p:inputText id="txtBags"></p:inputText>
+                        
+                    </td>
+                
+                    
+                </tr>
+                
+                <tr>
+                    <td>
+                        <p:outputLabel for="ddlCity">City</p:outputLabel> 
+                    </td>    
+                   <td >
+                   <p:selectOneMenu id="ddlCity" style="width:225px;">
+                       <f:selectItem itemLabel="Select City" itemValue="" noSelectionOption="true"></f:selectItem>
+                       <f:selectItems value="#{bean.city}"></f:selectItems>
+                   </p:selectOneMenu>
+                    </td>
+                    
+                </tr>
+                <tr>
+                    <td>
+                        <p:outputLabel for="txtHosp">Hospital Address</p:outputLabel> 
+                    </td>    
+                   <td >
+                   <p:inputText id="txtHosp"></p:inputText>
+                    </td>
+                    
+                </tr>
+                <tr>
+                    <td>
+                <p:outputLabel for="txtContact">Contact Number</p:outputLabel>
+                    </td>
+                    <td>
+                    <p:inputText id="txtContact"></p:inputText>
+                    </td>
+                </tr>
+                
+               <tr>
+                    <td colspan="3">
+                <p:commandButton style="margin-left:183px;" id="btnRequest" value="Request"></p:commandButton>
+                    </td>    
+                    
+                    
+                
+                    
+                </tr>
+               
+            </table>
+                    
+            </p:layoutUnit>
+            </p:layout>
+             
+           
+            
+            
+        </h:body>
+
+    </f:view>
+</html>
+

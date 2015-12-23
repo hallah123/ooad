@@ -1,0 +1,107 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+
+    <f:view contentType="text/html">
+        <h:head>
+            <f:facet name="first">
+                <meta content='text/html; charset=UTF-8' http-equiv="Content-Type"/>
+                
+                <title>Online Blood Management System</title>
+            </f:facet>
+            
+                <style>
+                    #link{
+                         margin-left: 260px;
+                         font-size: 10px;
+                    }
+                    
+                    .ui-button-text{
+                        font-size:14px;
+                    }
+                    .smallButton .ui-button-text {
+                        font-size:11px;
+                        color: red;
+                        background-color: blueviolet;
+                    }            
+                    
+                    #lblTitle{
+                        font-size: 36px;
+                        margin-left: 210px;
+                        
+                    }
+                    #divHeading{
+                        color:white;
+                        width:900px; 
+                        height:60px; 
+                        background-color: #5b0202;
+                        margin-top:20px;
+                        margin-left: 250px;
+                        padding-top: 20px;
+                        border-bottom-right-radius: 30px;
+                        border-top-left-radius: 30px;   
+                    }
+                    
+                </style>
+        </h:head>
+
+        <h:body style="background-color:white">
+            <div id="divHeading">
+                
+                 <h:outputLabel id="lblTitle" ><b>Online Blood Management System</b></h:outputLabel>
+            </div>
+            
+                   
+            
+            <p:layout style="padding-left: 450px; padding-top: 90px;width: 500px;min-height:240px;">
+            <p:layoutUnit position="center">
+                <table style="padding-left: 30px; padding-top: 40px;">
+                <tr>
+                    <td>
+                        <p:outputLabel id="lblUser">Enter Username</p:outputLabel>
+                    </td>
+                    <td> 
+                        <p:inputText id="txtUser"/>
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td>
+                        <p:outputLabel id="lblPassword">Enter Password</p:outputLabel>
+                    </td>
+                    <td>
+                        <p:password id="txtPassword"></p:password>
+                    </td>
+                    
+                </tr>
+                    
+                <tr>
+                    <td colspan ="3">
+                        <p:button style="margin-left:290px;" id="btnSubmit" value="Login"></p:button>
+                    </td>    
+                    
+                </tr>
+                <tr>
+                    <td colspan="3" >
+                        <a id="link" href="ForgotPassword.xhtml">Forgot your password?</a>
+                    </td>
+                    
+                </tr>
+                
+                <tr>
+                    <td colspan="3" >
+                        <a id="link" href="Register.xhtml">Sign up</a>
+                    </td>
+                    
+                </tr>
+            </table>
+            </p:layoutUnit>
+            </p:layout>
+        </h:body>
+
+    </f:view>
+</html>
+

@@ -1,0 +1,166 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+      
+
+    <f:view contentType="text/html">
+        <h:head>
+            <f:facet name="first">
+                <meta content='text/html; charset=UTF-8' http-equiv="Content-Type"/>
+                 
+                <title>Online Blood Management System-MArk Donation</title>
+            </f:facet>
+            
+                <style>
+                    .ui-button-text{
+                        font-size:14px;
+                    }
+                    .smallButton .ui-button-text {
+                        font-size:11px;
+                        color: red;
+                        background-color: blueviolet;
+                    }            
+                    
+                    #lblTitle{
+                        font-size: 36px;
+                        margin-left: 210px;
+                        
+                    }
+                    #divHeading{
+                        color:white;
+                        width:900px; 
+                        height:60px; 
+                        background-color:#5b0202;
+                        margin-top:20px;
+                        margin-left: 250px;
+                        padding-top: 20px;
+                        border-bottom-right-radius: 30px;
+                        border-top-left-radius: 30px;   
+                    }
+                    
+                    .leftBox{
+                        margin-left: 370px;
+                        margin-top: 10px;
+                        width: 550px;
+                        min-height:350px;
+                    }
+                    
+                    .rightBox{
+                        margin-left: 700px;
+                        margin-top: 10px;
+                        width: 500px;
+                        min-height:300px;
+                    }
+                    
+                    #lblHeadDonar{
+                        font-size: 18px;
+                        font-family: cursive;
+                    }
+                   
+                    #divDonar{
+                        margin-top: 120px;
+                        margin-left: 580px;
+                    }
+                    
+                    #divRecipient{
+                        margin-top: -335px;
+                        margin-left: 850px;
+                    }
+                </style>
+        </h:head>
+
+        <h:body style="background-color:white">
+            <div id="divHeading">
+                <h:outputLabel id="lblTitle" ><b>Online Blood Management System</b></h:outputLabel>
+            </div>
+            
+            <div id="divDonar">
+                <h:outputLabel id="lblHeadDonar"><i><b>Mark Donation</b></i></h:outputLabel>
+            </div>
+            
+            <p:layout styleClass="leftBox">
+                <p:layoutUnit position="center" >
+                    <p:panelGrid columns="5">
+                        <h:outputText value="City"/>
+                        <h:outputText value="Recipient's Name"/>
+                        <h:outputText value="Hospital"/>
+                        <h:outputText value="Current Status"/>
+                        <h:outputText value="Change Status"/>
+                        <c:forEach items="#{bean.list}" var="obj">
+                            <p:panel>
+                                <h:outputText value="#{obj.value}"/>
+                            </p:panel>
+                        </c:forEach>
+                    </p:panelGrid>                    
+                </p:layoutUnit>
+            </p:layout>
+             
+            <!----------------------------------------------->
+            <h:dataTable value="#{bean.list}" var="o"
+    			styleClass="order-table"
+    			headerClass="order-table-header"
+    			rowClasses="order-table-odd-row,order-table-even-row"
+    		>
+
+    			<h:column>
+    			
+    				<f:facet name="header">Order No</f:facet>
+    				
+    				<h:inputText value="#{o}" size="10" rendered="#{o.editable}" />
+    				
+    				<h:outputText value="#{o.orderNo}" rendered="#{not o.editable}" />
+					
+    			</h:column>
+    			
+    			<h:column>
+    			
+    				<f:facet name="header">Product Name</f:facet>
+    				
+    				<h:inputText value="#{o.productName}" size="20" rendered="#{o.editable}" />
+    				
+    				<h:outputText value="#{o.productName}" rendered="#{not o.editable}" />
+    				
+    			</h:column>
+    			
+    			<h:column>
+    				
+    				<f:facet name="header">Price</f:facet>
+    				
+    				<h:inputText value="#{o.price}" size="10" rendered="#{o.editable}" />
+    				
+    				<h:outputText value="#{o.price}" rendered="#{not o.editable}" />
+    				
+    			</h:column>
+    			
+    			<h:column>
+    				
+    				<f:facet name="header">Quantity</f:facet>
+    				
+    				<h:inputText value="#{o.qty}" size="5" rendered="#{o.editable}" />
+    				
+    				<h:outputText value="#{o.qty}" rendered="#{not o.editable}" />
+    				
+    			</h:column>
+    		
+    			<h:column>
+    				
+    				<f:facet name="header">Action</f:facet>
+    				
+    				<h:commandLink value="Edit" action="#{order.editAction(o)}" rendered="#{not o.editable}" />
+    				
+    			</h:column>
+
+    		</h:dataTable>
+    		
+    		<h:commandButton value="Save Changes" action="#{order.saveAction}" />
+           
+            
+            
+        </h:body>
+
+    </f:view>
+</html>
+

@@ -1,0 +1,264 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+      
+
+    <f:view contentType="text/html">
+        <h:head>
+            <f:facet name="first">
+                <meta content='text/html; charset=UTF-8' http-equiv="Content-Type"/>
+                 
+                <title>Online Blood Management System-Register</title>
+            </f:facet>
+            
+                <style>
+                    .ui-button-text{
+                        font-size:14px;
+                    }
+                    .smallButton .ui-button-text {
+                        font-size:11px;
+                        color: red;
+                        background-color: blueviolet;
+                    }            
+                    
+                    #lblTitle{
+                        font-size: 36px;
+                        margin-left: 210px;
+                        
+                    }
+                    #divHeading{
+                        color:white;
+                        width:900px; 
+                        height:60px; 
+                        background-color:#5b0202;
+                        margin-top:20px;
+                        margin-left: 250px;
+                        padding-top: 20px;
+                        border-bottom-right-radius: 30px;
+                        border-top-left-radius: 30px;   
+                    }
+                    
+                    .leftBox{
+                        margin-left: 260px;
+                        margin-top: 10px;
+                        width: 850px;
+                        min-height:300px;
+                    }
+                    
+                    .rightBox{
+                        margin-left: 700px;
+                        margin-top: 10px;
+                        width: 500px;
+                        min-height:300px;
+                    }
+                    
+                    #lblHeadDonar{
+                        font-size: 18px;
+                        font-family: cursive;
+                    }
+                   
+                    #divDonar{
+                        margin-top: 120px;
+                        margin-left: 580px;
+                    }
+                    
+                    #divRecipient{
+                        margin-top: -335px;
+                        margin-left: 850px;
+                    }
+                </style>
+        </h:head>
+
+        <h:body style="background-color:white">
+            <div id="divHeading">
+                <h:outputLabel id="lblTitle" ><b>Online Blood Management System</b></h:outputLabel>
+            </div>
+            
+            <div id="divDonar">
+                <h:outputLabel id="lblHeadDonar"><i><b>Register Yourself</b></i></h:outputLabel>
+            </div>
+            
+            <p:layout styleClass="leftBox">
+                <p:layoutUnit position="center" >
+                <table style="padding-left: 30px; padding-top: 40px;">
+                       <tr>
+                    <td>
+                <p:outputLabel for="txtName">Name</p:outputLabel>
+                    </td>
+                    <td> 
+                    <h:form>
+                    <h:inputText id="txtName" value="#{bean.name}" required="true">
+                   
+                    </h:inputText>
+                    
+                    </h:form>
+                    </td>
+                    
+                </tr>
+                <tr>
+                    <td>
+                <p:outputLabel for="txtEmail" value="#{bean.email}">Email Address</p:outputLabel> 
+                        
+                    </td>    
+                    
+                    <td >
+                    <h:form>
+                        <h:inputText id="txtEmail" required="true">
+                   
+                        </h:inputText>
+                        
+                        </h:form>
+                    </td>
+                
+                    
+                </tr>
+                
+                <tr>
+                    <td>
+                        <p:outputLabel for="txtPassword">Enter Password</p:outputLabel> 
+                    </td>    
+                    
+                    <td >
+                        <p:inputText id="txtPassword"></p:inputText>
+                        
+                    </td>
+                
+                    
+                </tr>
+                
+                <tr>
+                    <td>
+                        <p:outputLabel for="txtaddress">Address</p:outputLabel> 
+                    </td>    
+                    
+                    <td >
+                        <p:inputText id="txtaddress"></p:inputText>
+                        
+                    </td>
+                
+                    
+                </tr>
+                
+                <tr>
+                    <td>
+                        <p:outputLabel for="txtweight">City</p:outputLabel> 
+                    </td>    
+                   <td >
+                   <p:selectOneMenu id="ddlCity" style="width:225px;">
+                       <f:selectItem itemLabel="Select City" itemValue="" noSelectionOption="true"></f:selectItem>
+                       <f:selectItems value="#{bean.city}"></f:selectItems>
+                   </p:selectOneMenu>
+                    </td>
+                    
+                </tr>
+                <tr>
+                    <td>
+                <p:outputLabel>User Type</p:outputLabel>
+                    </td>
+                    <td>
+                    <p:selectOneRadio id="radioUser">
+                        <f:selectItem itemLabel="Donar" itemValue="Donar"></f:selectItem>
+                        <f:selectItem itemLabel="Recipient" itemValue="Recipient"></f:selectItem>
+                    </p:selectOneRadio>
+                    </td>
+                </tr>
+                
+              
+               
+            </table>
+                    <table style="margin-left: 440px; margin-top: -220px; padding-right: 25px;">
+               <tr>
+                    <td>
+                <p:outputLabel for="ddlBloodgrp">Blood Type</p:outputLabel>
+                    </td>
+                    <td> 
+                    <p:selectOneMenu  style="width:225px;" id="ddlBloodgrp" >
+                        <f:selectItem itemLabel="Select Blood Group" noSelectionOption="true"></f:selectItem>
+                        <f:selectItems value="#{bean.list}"></f:selectItems>
+                    </p:selectOneMenu>
+                    </td>
+                </tr>
+                    
+                <tr>
+                    <td>
+                        <p:outputLabel for="txtage">Age</p:outputLabel> 
+                    </td>    
+                    
+                    <td >
+                        <p:inputText id="txtage"></p:inputText>
+                        
+                    </td>
+                
+                    
+                </tr>
+                
+                <tr>
+                    <td>
+                        <p:outputLabel for="txtheight">Height</p:outputLabel> 
+                    </td>    
+                    
+                    <td >
+                        <p:inputText id="txtheight"></p:inputText>
+                        
+                    </td>
+                
+                    
+                </tr>
+                
+                <tr>
+                    <td>
+                        <p:outputLabel for="txtweight">Weight</p:outputLabel> 
+                    </td>    
+                    
+                    <td >
+                        <p:inputText id="txtweight"></p:inputText>
+                        
+                    </td>
+                
+                    
+                </tr>
+                
+                <tr>
+                    <td>
+                        <p:outputLabel for="txtweight">Transferable disease</p:outputLabel> 
+                    </td>    
+                   <td >
+                    <p:selectOneRadio>
+                        <f:selectItem itemLabel="Yes" itemValue="Yes"></f:selectItem>
+                        <f:selectItem itemLabel="No" itemValue="No"></f:selectItem>
+                    </p:selectOneRadio>
+                    </td>
+                    
+                </tr>
+                    
+                
+                
+                <tr>
+                    <td colspan="3">
+                <h:form>
+                    <p:commandButton style="margin-left:183px;" id="btnRegister" actionListener="#{bean.buttonAction}" value="Register">
+                    </p:commandButton>
+                
+                </h:form>
+                
+                    </td>    
+                    
+                    
+                
+                    
+                </tr>
+            </table>
+            </p:layoutUnit>
+            </p:layout>
+             
+           
+            
+            
+        </h:body>
+
+    </f:view>
+</html>
+
